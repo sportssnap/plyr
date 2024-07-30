@@ -13,16 +13,56 @@
         .disclaimer {
             text-align: center;
         }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .telegram-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99999;
+            pointer-events: auto;
+        }
+        .glow-image {
+            display: block;
+            margin: 20px auto;
+            border: 2px solid transparent;
+            animation: pulsate 2s infinite alternate, zoom 4s infinite;
+        }
+        @keyframes pulsate {
+            0% {
+                box-shadow: 0 0 10px 5px rgba(255, 0, 0, 0.7);
+                border-color: rgba(255, 0, 0, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 15px 7px rgba(0, 255, 0, 0.7);
+                border-color: rgba(0, 255, 0, 0.7);
+            }
+            100% {
+                box-shadow: 0 0 10px 5px rgba(0, 0, 255, 0.7);
+                border-color: rgba(0, 0, 255, 0.7);
+            }
+        }
+        @keyframes zoom {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
     </style>
     <script>
-        // Prevent right-click on images
         $(document).ready(function() {
             $("img").on("contextmenu", function() {
                 return false;
             });
         });
 
-        // Get URL parameter
         function getParam(sname) {
             var params = location.search.substr(location.search.indexOf("?") + 1);
             var sval = params.replace("url=", "");
@@ -31,7 +71,6 @@
 
         var sv = getParam("sv");
 
-        // Show the player based on URL parameters
         window.onload = function() {
             const urlParams = new URLSearchParams(window.location.search);
             const srcParam = urlParams.get('src');
@@ -47,35 +86,75 @@
                 document.getElementById('iframe').style.display = 'none';
             }
         }
-
-        // Overlay display logic
-        document.addEventListener("DOMContentLoaded", function() {
-            document.getElementById('overlay').style.display = 'block';
-            setTimeout(function () {
-                document.getElementById('overlay').style.display = 'none';
-                var urlParams = new URLSearchParams(window.location.search);
-                var newurl = urlParams.get('newurl');
-                if (newurl) {
-                    document.getElementById('myIframe').src = newurl;
-                }
-            }, 30000); // 30 seconds
-
-            setTimeout(function () {
-                document.getElementById('overlay').style.display = 'none';
-            }, 30000); // Hide the overlay after 30 seconds
-        });
     </script>
 </head>
 <body>
-    <div class="disclaimer">
-        <b><span style="color: black;">Skip 1 Ad | Watch Peacefully !!</span></b>
-    </div>
-    <iframe id="iframe" allow="encrypted-media" allowfullscreen="allowfullscreen" allowtransparency="true" frameborder="0" height="100%" marginheight="0" scrolling="no" marginwidth="0" width="100%"></iframe>
-    
-    <div id="jwPlayer"></div>
-    <div id="jwplayers"></div>
-    <div id="overlay" style="display: none;">Loading...</div> <!-- Assuming there is an overlay element -->
 
-    <div><br/></div>
+    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjtZX3FHhjU1nrotuHXuPZ_9RcUbfNhOG41s5sT3g7_7_kBGHQTMizJJjpfLS-22muSOCHZv7TMhsPg74OR0SiegWBtRdy55QxV42xpcgHPaFHcviPmrZceVOiWN8d-UC2eBKRnHJlPKhA59bn-B3bKpzdILy2b6tPbBN5kNdO3IGAVmmhpeLMy3HAihiVc=s363" alt="Attractive Glowing Logo" class="glow-image">
+
+
+    <div class="container">
+      
+      <div style="background-color: blue; border: 2px solid yellow; padding: 10px; text-align: center;">
+        <span style="color: white; font-weight: bold;">Refresh Page OR Change Link, If This Doesn't Work!!</span>
+    </div>
+    <br />
+        <div class="disclaimer">
+            <b><span style="color: black;">Skip 1 Ad | Watch Peacefully !!</span></b>
+        </div>
+        <iframe id="iframe" allow="encrypted-media" allowfullscreen="allowfullscreen" allowtransparency="true" frameborder="0" height="100%" marginheight="0" scrolling="no" marginwidth="0" width="100%"></iframe>
+        
+        <div id="jwplayers"></div>
+
+        <div style="text-align: center; background-color: yellow; padding: 5px; font-family: Arial, sans-serif;">
+            <span style="font-size: 12px; font-weight: bold; color: red;">Join Our All Official Social Media Platform For The Match Links and Updates</span>
+        </div>
+        <br>
+
+        <a href="https://t.me/sportssnapofficial" style="color: black; font-family: Arial, sans-serif; text-decoration: none;">
+            <div onmouseout="this.style.backgroundColor='white'; this.style.borderColor='black'; this.style.color='black';" onmouseover="this.style.backgroundColor='#e0e0e0'; this.style.borderColor='#888888'; this.style.color='#222222';" style="align-items: center; background: white; border-radius: 0px; border: 2px solid; box-sizing: border-box; color: black; display: flex; height: 60px; justify-content: left; list-style: none; margin: 0.1pc; outline: none; overflow: hidden; padding: 0.01pc; text-align: left; transition: background-color 0.3s ease 0s, border-color 0.3s ease 0s, color 0.3s ease 0s; vertical-align: baseline;">
+                <b style="align-items: center; background: 0px 0px; border: 0px; box-sizing: border-box; display: flex; list-style: none; margin: 0px; outline: none; padding: 0px; vertical-align: baseline;">
+                    <img alt="Sports Snap Telegram Channel" src="https://i.imgur.com/kBf4h84.png" style="height: 40px; margin-bottom: 0px; margin-left: 5px; margin-right: 5px; width: 40px;" />
+                    <span style="font-family: Arial, sans-serif;">Join Our Official Telegram Channel For Match Updates and Link !!</span>
+                </b>
+            </div>
+        </a>
+
+        <a href="https://t.me/+uxZjW5lZQTM1NjI1" style="color: black; font-family: Arial, sans-serif; text-decoration: none;">
+            <div onmouseout="this.style.backgroundColor='white'; this.style.borderColor='black'; this.style.color='black';" onmouseover="this.style.backgroundColor='#e0e0e0'; this.style.borderColor='#888888'; this.style.color='#222222';" style="align-items: center; background: white; border-radius: 0px; border: 2px solid; box-sizing: border-box; color: black; display: flex; height: 60px; justify-content: left; list-style: none; margin: 0.1pc; outline: none; overflow: hidden; padding: 0.01pc; text-align: left; transition: background-color 0.3s ease 0s, border-color 0.3s ease 0s, color 0.3s ease 0s; vertical-align: baseline;">
+                <b style="align-items: center; background: 0px 0px; border: 0px; box-sizing: border-box; display: flex; list-style: none; margin: 0px; outline: none; padding: 0px; vertical-align: baseline;">
+                    <img alt="Sports Snap Telegram Channel" src="https://i.imgur.com/kBf4h84.png" style="height: 40px; margin-bottom: 0px; margin-left: 5px; margin-right: 5px; width: 40px;" />
+                    <span style="font-family: Arial, sans-serif;">Join Our Telegram Discussion Group For The Match Discuss and Link !!</span>
+                </b>
+            </div>
+        </a>
+
+        <a href="https://www.youtube.com/@sportssnapofficial" style="color: black; font-family: Arial, sans-serif; text-decoration: none;">
+            <div onmouseout="this.style.backgroundColor='white'; this.style.borderColor='black'; this.style.color='black';" onmouseover="this.style.backgroundColor='#e0e0e0'; this.style.borderColor='#888888'; this.style.color='#222222';" style="align-items: center; background: white; border-radius: 0px; border: 2px solid; box-sizing: border-box; color: black; display: flex; height: 60px; justify-content: left; list-style: none; margin: 0.1pc; outline: none; overflow: hidden; padding: 0.01pc; text-align: left; transition: background-color 0.3s ease 0s, border-color 0.3s ease 0s, color 0.3s ease 0s; vertical-align: baseline;">
+                <b style="align-items: center; background: 0px 0px; border: 0px; box-sizing: border-box; display: flex; list-style: none; margin: 0px; outline: none; padding: 0px; vertical-align: baseline;">
+                    <img alt="Sports Snap YouTube Channel" src="https://i.imgur.com/jnSP71a.png" style="height: 40px; margin-bottom: 0px; margin-left: 5px; margin-right: 5px; width: 40px;" />
+                    <span style="font-family: Arial, sans-serif;">Subscribe Us For More Football & Cricket Live !!</span>
+                </b>
+            </div>
+        </a>
+
+        <div><br/></div>
+      
+      
+      <!--DMCA NOTE-->
+<div style="background-color: blue; border: 2px solid yellow; padding: 10px; text-align: center;"><span style="color: white; font-family: arial; font-size: large;"><b><i>DMCA NOTE:</i></b></span></div><div style="background-color: blue; border: 2px solid yellow; padding: 10px; text-align: center;"><span style="color: white; font-family: helvetica; font-weight: bold;">Sports Snap doesn't host media content on its site. Visitors may use external services for content display. The site notifies copyright owners that links and media are hosted elsewhere or embedded from various sites. For legal issues, contact the relevant file owners/hosters. Trademarks, videos, logos belong to their respective owners/companies.</span></div><div><br /></div>
+
+        <!-- Telegram Button -->
+        <div class="telegram-button">
+            <a href="https://t.me/sportssnapofficial" rel="noopener" style="display:block;font-size:16px;font-weight:500;text-align:center;border-radius:8px;padding:5px;background:#389ce9;text-decoration:none;color:#fff;" target="_blank">
+                <svg style="width:30px;height:50px;vertical-align:middle;margin:0px 5px;" viewBox="0 0 21 18">
+                    <g fill="none">
+                        <path d="M0.554,7.092 L19.117,0.078 C19.737,-0.156 20.429,0.156 20.663,0.776 C20.745,0.994 20.763,1.23 20.713,1.457 L17.513,16.059 C17.351,16.799 16.62,17.268 15.88,17.105 C15.696,17.065 15.523,16.987 15.37,16.877 L8.997,12.271 C8.614,11.994 8.527,11.458 8.805,11.074 C8.835,11.033 8.869,10.994 8.905,10.958 L15.458,4.661 C15.594,4.53 15.598,4.313 15.467,4.176 C15.354,4.059 15.174,4.037 15.036,4.125 L6.104,9.795 C5.575,10.131 4.922,10.207 4.329,10.002 L0.577,8.704 C0.13,8.55 -0.107,8.061 0.047,7.614 C0.131,7.374 0.316,7.182 0.554,7.092 Z" fill="#ffffff"/>
+                    </g>
+                </svg>
+                Join Sports Snap on Telegram
+            </a>
+        </div>
+    </div>
 </body>
 </html>
