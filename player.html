@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://yosintv2.github.io/ads/player.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://sportssnap.github.io/Football-JW/jwplayerr.js"></script>
+    <title>Sports Snap Player</title>
+    <style>
+        .disclaimer {
+            text-align: center;
+        }
+    </style>
+    <script>
+        // Prevent right-click on images
+        $(document).ready(function() {
+            $("img").on("contextmenu", function() {
+                return false;
+            });
+        });
+
+        // Get URL parameter
+        function getParam(sname) {
+            var params = location.search.substr(location.search.indexOf("?") + 1);
+            var sval = params.replace("url=", "");
+            return sval;
+        }
+
+        var sv = getParam("sv");
+
+        // Show the player based on URL parameters
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const srcParam = urlParams.get('src');
+            const videoUrl = urlParams.get('hls');
+            
+            if (srcParam) {
+                document.getElementById('iframe').src = srcParam;
+                document.getElementById('jwPlayer').style.display = 'none';
+            } else if (videoUrl) {
+                jwplayer("jwPlayer").setup({
+                    file: videoUrl,
+                });
+                document.getElementById('iframe').style.display = 'none';
+            }
+        }
+
+        // Overlay display logic
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById('overlay').style.display = 'block';
+            setTimeout(function () {
+                document.getElementById('overlay').style.display = 'none';
+                var urlParams = new URLSearchParams(window.location.search);
+                var newurl = urlParams.get('newurl');
+                if (newurl) {
+                    document.getElementById('myIframe').src = newurl;
+                }
+            }, 30000); // 30 seconds
+
+            setTimeout(function () {
+                document.getElementById('overlay').style.display = 'none';
+            }, 30000); // Hide the overlay after 30 seconds
+        });
+    </script>
+</head>
+<body>
+    <div class="disclaimer">
+        <b><span style="color: black;">Skip 1 Ad | Watch Peacefully !!</span></b>
+    </div>
+    <iframe id="iframe" allow="encrypted-media" allowfullscreen="allowfullscreen" allowtransparency="true" frameborder="0" height="100%" marginheight="0" scrolling="no" marginwidth="0" width="100%"></iframe>
+    
+    <div id="jwPlayer"></div>
+    <div id="jwplayers"></div>
+    <div id="overlay" style="display: none;">Loading...</div> <!-- Assuming there is an overlay element -->
+
+    <div><br/></div>
+</body>
+</html>
