@@ -55,6 +55,31 @@
                 transform: scale(1);
             }
         }
+      
+      body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        .content {
+            flex: 1;
+        }
+        .copyright-banner {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            font-family: Arial, sans-serif;
+        }
+        .copyright-banner a {
+            color: #ffcc00;
+            text-decoration: none;
+            margin-left: 5px;
+        }
+        .copyright-banner a:hover {
+            text-decoration: underline;
+        }
     </style>
     <script>
         $(document).ready(function() {
@@ -95,14 +120,14 @@
 
     <div class="container">
       
-      <div style="background-color: blue; border: 2px solid yellow; padding: 10px; text-align: center;">
+      <div style=" font-size: 14px; background-color: blue; border: 2px solid yellow; padding: 10px; text-align: center;">
         <span style="color: white; font-weight: bold;">Refresh Page OR Change Link, If This Doesn't Work!!</span>
     </div>
     <br />
         <div class="disclaimer">
-            <b><span style="color: black;">Click on PLAY BUTTON | Wait Few Seconds To Load | Watch Peacefully !!</span></b>
+            <b><span style="color: black;">Click on PLAY BUTTON | Wait For Few Seconds To Load !!</span></b>
         </div>
-        <iframe id="iframe" sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation" allow="encrypted-media" allowfullscreen="allowfullscreen" allowtransparency="true" frameborder="0" height="100%" marginheight="0" scrolling="no" marginwidth="0" width="100%"></iframe>
+        <iframe id="iframe" allow="encrypted-media" allowfullscreen="allowfullscreen" allowtransparency="true" frameborder="0" height="100%" marginheight="0" scrolling="no" marginwidth="0" width="100%"></iframe>
         
         <div id="jwplayers"></div>
 
@@ -143,6 +168,11 @@
       
       <!--DMCA NOTE-->
 <div style="background-color: blue; border: 2px solid yellow; padding: 10px; text-align: center;"><span style="color: white; font-family: arial; font-size: large;"><b><i>DMCA NOTE:</i></b></span></div><div style="background-color: blue; border: 2px solid yellow; padding: 10px; text-align: center;"><span style="color: white; font-family: helvetica; font-weight: bold;">Sports Snap doesn't host media content on its site. Visitors may use external services for content display. The site notifies copyright owners that links and media are hosted elsewhere or embedded from various sites. For legal issues, contact the relevant file owners/hosters. Trademarks, videos, logos belong to their respective owners/companies.</span></div><div><br /></div>
+      
+      
+      <div class="copyright-banner">
+        &copy; 2024 Sports Snap. All rights reserved. <a href="https://sportssnap.net">sportssnap.net</a>
+    </div>
 
         <!-- Telegram Button -->
         <div class="telegram-button">
