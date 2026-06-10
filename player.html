@@ -307,7 +307,10 @@ function getStatus(start,end){
 }
 
 /* ── URL param ── */
-var matchId = new URLSearchParams(window.location.search).get('sportssnap')||'';
+var params = new URLSearchParams(window.location.search);
+var matchId = params.get('sportssnap') || '';
+var linkKey = params.get('link') || '';
+var streamKey = linkKey ? matchId + '-' + linkKey : matchId;
 
 /* ── TV player base URL ── */
 var TV_BASE = 'https://sportssnap.github.io/tv/play?sportssnap=';
@@ -345,7 +348,7 @@ fetch('https://sportssnap.github.io/fmatch/matches.json')
     document.title = title + ' | Sports Snap';
 
     /* ── Build iframe URL: tv/play?sportssnap=<match.id> ── */
-    var iframeUrl = TV_BASE + encodeURIComponent(match.id);
+   var iframeUrl = TV_BASE + encodeURIComponent(streamKey);
     iframe.src = iframeUrl;
 
     /* ── Hide spinner once iframe fires load ── */
